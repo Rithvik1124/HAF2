@@ -21,7 +21,7 @@ html, body {
   font-weight: 900;
   line-height: 1.02;
   margin-bottom: 22px;
-  color: #e2ddb4;
+  color: #000;
 }
 
 .blog-mega .accent {
@@ -44,7 +44,12 @@ html, body {
     transparent
   );
 }
-
+.blog-section {
+    padding: 100px 0;
+    background-color: #fff; /* RED BACKGROUND */
+    width: 100%;
+    overflow: hidden;
+}
 .blog-marquee-track {
   display: flex;
   gap: 18px;
@@ -110,6 +115,7 @@ html, body {
 .blog-card {
     flex: 0 0 400px;
     scroll-snap-align: center;
+    border: 1px solid #f6c8a4;
     min-height: 400px;
     background-color: #e2ddb4; /* EARTHY GOLD CARD */
     border-radius: 12px;

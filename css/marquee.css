@@ -1,43 +1,68 @@
 :root {
-  --marquee-size: clamp(10rem, 8rem + 10vmin, 18rem); 
-  --marquee-gap: 48px;
-  --duration: 42s;
+  --marquee-gap: 50px;
 }
 
+/* WRAPPER */
 .marquee {
   display: flex;
   overflow: hidden;
-  gap: 48px;
+
+  /* critical */
+  width: 100%;
+  gap: 60px;
 }
 
 .marquee__group {
   display: flex;
-  gap: 48px;
-  min-width: 100%;
-  animation: scroll-x 42s linear infinite;
+  align-items: center;
+  gap: var(--marquee-gap);
+
+  flex-shrink: 0;
+  min-width: max-content;
+
+  /* CRITICAL: use translate3d for GPU */
+  animation: scroll-x 38s linear infinite;
+  will-change: transform;
 }
 
+/* Reverse line */
 .marquee--reverse .marquee__group {
   animation-direction: reverse;
 }
 
+/* ANIMATION */
 @keyframes scroll-x {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-100%); }
+  from {
+    transform: translate3d(0,0,0);
+  }
+  to {
+    transform: translate3d(calc(-100% - var(--marquee-gap)),0,0);
+  }
 }
 
+/* NORMALIZED LOGOS */
 .marquee img {
-  width: 240px;
-  height: auto;
-  transition: transform 0.3s ease;
+  width: 160px;
+  height: 70px;
+
+  object-fit: contain;
+  object-position: center;
+
+  flex-shrink: 0;        /* ❗ stops squishing */
+  display: block;
+
+  padding: 2px;
+  transition: transform .25s ease;
 }
 
 .marquee img:hover {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
+/* MOBILE */
 @media (max-width: 768px) {
   .marquee img {
-    width: 180px;
+    width: 120px;
+    height: 54px;
   }
 }

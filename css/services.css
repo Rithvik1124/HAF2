@@ -98,12 +98,13 @@ body {
 .service-icon-row {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 30px;
     margin-bottom: 22px;
 }
 
 .service-icon {
     font-size: clamp(2.4rem, 3vw, 3rem);
+    margin-bottom: 3px;
     font-weight: 900;
     line-height: 1;
     color: #000;

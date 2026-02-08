@@ -147,9 +147,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // PHILOSOPHY CARD
-    const philBtn = document.getElementById("flipBtn");
-    const philCard = document.getElementById("philosophyCard");
-    if (philBtn && philCard) {
-        philBtn.addEventListener("click", () => philCard.classList.toggle("flipped"));
-    }
+// PHILOSOPHY CARD — SAFE BIND
+// PHILOSOPHY CARD — FINAL FIX
+(() => {
+
+  const philBtn = document.getElementById("flipBtn");
+  const philCard = document.getElementById("philosophyCard");
+
+  console.log("Philosophy debug:", { philBtn, philCard });
+
+  if (!philBtn || !philCard) return;
+
+  philBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    philCard.classList.toggle("flipped");
+
+    console.log("AFTER CLICK:", philCard.classList);
+  });
+
+})();
+
+
 });

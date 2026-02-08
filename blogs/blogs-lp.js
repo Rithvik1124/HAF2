@@ -1,4 +1,24 @@
 // ===== TYPE ANIMATION =====
+document.addEventListener('DOMContentLoaded', () => {
+
+
+    // NAV & BURGER
+    const burger = document.getElementById("menuToggle");
+    const menu = document.getElementById("mobileMenu");
+    const nav = document.querySelector(".main-nav");
+
+    if (burger && menu) {
+        burger.addEventListener("click", () => {
+            burger.classList.toggle("active");
+            menu.classList.toggle("open");
+        });
+    }
+    document.querySelectorAll(".mobile-menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.remove("open");
+    burger.classList.remove("active");
+  });
+});});
 const tags = document.querySelectorAll("#tagTrack span");
 const cards = document.querySelectorAll(".blog-card");
 
@@ -156,29 +176,12 @@ let page = 1;
 const perPage = 6;
 
 function render() {
-  const grid = document.getElementById("blogGrid");
-  grid.innerHTML = "";
+  const container = document.getElementById("blogContainer");
+  if (!container) return;   // ← SAFETY
 
-  data.forEach(b => {
-    grid.innerHTML += `
-    <a href="blogs-template.html" class="read">
-      <article class="blog-toast" data-cat="${b.cat}">
-        <div class="toast-img">
-          <img src="${b.img}">
-          <span class="toast-cat">${b.cat}</span>
-        </div>
-
-        <div class="toast-body">
-          <span class="toast-date">${b.date}</span>
-          <h3>${b.title}</h3>
-          <p>${b.text}</p>
-
-        </div>
-      </article>
-      </a>
-    `;
-  });
+  container.innerHTML = html;
 }
+
 
 /* SEARCH */
 document.getElementById("searchInput")
@@ -212,3 +215,32 @@ document.querySelectorAll(".filter").forEach(btn => {
 });
 
 render();
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const openBtn  = document.getElementById("openCalendly");
+  const closeBtn = document.getElementById("closeCalendly");
+  const modal    = document.getElementById("calendlyModal");
+
+  if (!openBtn || !modal) {
+    console.log("Calendly elements not found", {openBtn, modal});
+    return;
+  }
+
+  openBtn.addEventListener("click", () => {
+    modal.classList.add("open");
+  });
+
+  closeBtn?.addEventListener("click", () => {
+    modal.classList.remove("open");
+  });
+
+  // click outside to close
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.classList.remove("open");
+    }
+  });
+
+});
+
