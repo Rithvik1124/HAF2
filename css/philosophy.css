@@ -18,7 +18,7 @@
 
   display: flex;
   gap: 80px;
-  align-items: center;
+  align-items: stretch;
 
   perspective: 1600px;
 }
@@ -124,7 +124,8 @@
 .static-image-card {
   flex: 1;
   max-width: 560px;
-  height: 520px;
+  height: 540px;
+  align-items: stretch;
 }
 
 .static-image-card img {
@@ -132,7 +133,9 @@
   height: 100%;
   object-fit: cover;
   border-radius: 22px;
-  box-shadow: 27px 25px 0px rgb(0, 0, 0, 0.1); 
+
+  /* match card optical weight */
+  display: block;
 }
 
 /* ======================================================
@@ -143,6 +146,13 @@
   display: flex;
   justify-content: center;
   margin-top: 60px;
+}
+
+.flip-card,
+.static-image-card {
+  flex: 1;
+  max-width: 560px;
+  display: flex;        /* ← force equal box behavior */
 }
 
 /* ======================================================
