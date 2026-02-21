@@ -8,6 +8,15 @@
     --transition: all 0.3s ease;
 }
 
+p{
+    color: #000;
+}
+
+.small-gap{
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
 .blog-container {
     max-width: 850px;
     margin: 0 auto; /* Removed the top margin to handle it with padding */
@@ -70,6 +79,7 @@
     margin: 40px 0;
     border: 1px solid var(--brand-orange);
     padding: 10px; /* Creates a "framed" effect */
+    
 }
 
 .featured-image img {
@@ -79,9 +89,16 @@
 
 /* Text Content */
 .blog-content {
+    font-weight: 400;
     font-size: 1.1rem;
     line-height: 1.7;
     color: var(--brand-cream);
+}
+
+.sub-head-1 {
+    color: var(--brand-orange);
+    text-transform: uppercase;
+    margin-top: 2em;
 }
 
 .blog-content h2 {
@@ -208,7 +225,7 @@
 }
 
 .footer-title {
-    color: var(--brand-cream);
+    color: #d2d2d2;
     font-size: 1.2rem;
     font-weight: 800;
     margin-bottom: 25px;
